@@ -111,4 +111,11 @@ public class UserController {
         }
         return result;
     }
+    @GetMapping("/getStudentById/{userId}")
+    public ResponseMessage<User> getUserById(@PathVariable("userId") Long userId){
+        ResponseMessage<User> result = new ResponseMessage<>();
+        User user = userService.getUserById(userId);
+        result.setUser(user);
+        return result;
+    }
 }
